@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardsDeck.cs" />
+    <Compile Include="CardStack.cs" />
     <Compile Include="enums.cs" />
     <Compile Include="Component1.cs">
       <SubType>Component</SubType>
@@ -60,6 +61,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IQueueCards.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

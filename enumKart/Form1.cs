@@ -12,36 +12,103 @@ namespace enumKart
 {
     public partial class Form1 : Form
     {
-        Card randomCard;
         Random random;
-        CardsDeck carddeck;
+        CardsDeck cardPile;
+        List<CardOnStack> cardsOnStack;
+        List <Player> players;
+        Player Tom, Bob, Lily;
 
         public Form1()
         {
             InitializeComponent();
+
             random = new Random();
-            carddeck = new CardsDeck();
-        }
+            cardPile = new CardsDeck();
+            Tom = new Player("Tom",TomSurfaceCardTextBox, TomNumberOfCards);
+            Bob = new Player("Bob", bobSurfaceCardTextBox, BobNumberOfCards);
+            Lily = new Player("Lily", LilySurfaceCardTextBox, LilyNumberOfCards);
 
-        private void pickRandomCard_Click(object sender, EventArgs e)
+            players = new List<Player>() { Tom, Bob, Lily };
+
+        }
+        
+        private void nextTourButton_Click(object sender, EventArgs e)
         {
-            int randomSuit = random.Next(3);
-            int randomValue = random.Next(1, 13);
+            TomSurfaceCardTextBox.BackColor = DefaultBackColor;
+            bobSurfaceCardTextBox.BackColor = DefaultBackColor;
+            LilySurfaceCardTextBox.BackColor = DefaultBackColor;
 
-            randomCard = new Card((Suits)randomSuit, (Values)randomValue);
-            MessageBox.Show(randomCard.Name);
+            foreach (Player player in players)
+            {
+                player.UpdateTextBoxes();
+            }
+
+            Player winner = nextTour();
+
+            winner.textBox.BackColor = Color.Green;
+
+            for(int i =0; i<players.Count; i++)
+            {
+                if (players[i] == winner)
+                {
+                    foreach (Card card in cardsOnStack)
+                    {
+                        players[i].CollectCard(card);
+                    }
+                }
+
+                if (players[i].NumberOfCards <= 0)
+                {
+                    players[i].UpdateTextBoxes();
+                    players.Remove(players[i]);
+                    
+                }
+
+            }
+            if (players.Count==1)
+            {
+                MessageBox.Show("Zwycieza gracz:" + players[0]);
+            }
+            cardsOnStack.Clear();
         }
 
-        private void showCardsDeck_Click(object sender, EventArgs e)
+     
+
+        private void newDealButton_Click(object sender, EventArgs e)
         {
+            cardPile.Shuffle(10);
+            int position=0;
+            int playerPosition;
 
-            carddeck.ShowAllCard();
+            while(cardPile.NumberOfCards != 0)
+            {
+                playerPosition = position % 3;
+                players[playerPosition].CollectCard(cardPile.PutCard());
+                position++;
+            }            
         }
 
-        private void shuffleButton_Click(object sender, EventArgs e)
+        private Player nextTour()
         {
-            carddeck.Shuffle();
-            Console.Write("Po potasowaniu!!!!1!!11!");
+            Player winner = players[0];
+
+            cardsOnStack = new List<CardOnStack>();
+
+            foreach (Player player in players)
+            {
+                if (player.NumberOfCards > 0)
+                {
+                    cardsOnStack.Add(new CardOnStack(player.PutCard(), player));
+                }
+            }
+
+
+
+            cardsOnStack.Sort();
+
+            return cardsOnStack.Last().Owner;
         }
+       
+       
     }
 }
