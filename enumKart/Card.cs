@@ -8,20 +8,16 @@ namespace enumKart
 {
     public class Card
     {
-        public Suits Suit;
-        
+        public Suits Suit;       
         public Values Value;
-       
 
         public string Name
         {
             get
             {
                 return Value.ToString() + " of " + Suit.ToString();
-            }
-               
+            }               
         }
-
         public Card(Suits inSuit, Values inValue)
         {
             Suit = inSuit;

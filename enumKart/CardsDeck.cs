@@ -33,8 +33,7 @@ namespace enumKart
             get
             {
                 return cards.Peek();
-            }
-         
+            }         
         }
         
         public int NumberOfCards
@@ -42,7 +41,7 @@ namespace enumKart
             get
             {
                 return cards.Count;
-            }
+            }                          
         }
 
         public void CollectCard(Card card)
@@ -65,12 +64,9 @@ namespace enumKart
                 for (int i = 0; i <= cards.Count - 1; i++)
                 {
                     int r = random.Next(i, cards.Count - 1);
-
                     Card buffer = newCardDeck[r];
-
                     newCardDeck[r] = newCardDeck[i];
                     newCardDeck[i] = buffer;
-
                 }
 
                 int last_random = random.Next(0, cards.Count - 1);
@@ -81,18 +77,11 @@ namespace enumKart
 
                 cards.Clear();
 
-
                 foreach (Card card in newCardDeck)
                 {
                     cards.Enqueue(card);
-                }
-                
-            }
-            
-          
-
-        }
-   
-
+                }               
+            }                     
+        }   
     }
 }
