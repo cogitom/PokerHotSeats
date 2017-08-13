@@ -14,101 +14,68 @@ namespace enumKart
     {
         Random random;
         CardsDeck cardPile;
-        List<CardOnStack> cardsOnStack;
         List <Player> players;
-        Player Tom, Bob, Lily;
-
-        public Form1()
+        public Form1(List <Player> inPlayers)
         {
             InitializeComponent();
 
             random = new Random();
             cardPile = new CardsDeck();
-            Tom = new Player("Tom",TomSurfaceCardTextBox, TomNumberOfCards);
-            Bob = new Player("Bob", bobSurfaceCardTextBox, BobNumberOfCards);
-            Lily = new Player("Lily", LilySurfaceCardTextBox, LilyNumberOfCards);
+            players =new List<Player>(inPlayers);
 
-            players = new List<Player>() { Tom, Bob, Lily };
+            if (players.Count>=2)
+            {
+                player1CardsTextBox.Visible = true;
+                players[0].cardTextBox = player1CardsTextBox;
+                player2CardsTextBox.Visible = true;
+                players[1].cardTextBox = player2CardsTextBox;
+            }
+            if (players.Count >= 3)
+            {
+                player3CardsTextBox.Visible = true;
+                players[2].cardTextBox = player3CardsTextBox;
+            }
 
+            if (players.Count >= 4)
+            {
+                player4TextBox.Visible = true;
+                players[3].cardTextBox = player3CardsTextBox;
+            }
+
+            newDeal();
+
+            foreach ( Player player in players)
+            {
+                player.cardTextBox.AppendText(player.getAllCardsInHand());
+            }
+        }
+        private void newDeal()
+        {
+            cardPile.Shuffle(10);
+            int position = 0;
+            int playerPosition;
+            for (int i = 0; i < 15; i++)
+            {
+                playerPosition = position % players.Count;
+                players[playerPosition].CollectCard(cardPile.PutCard());
+                position++;
+            }
         }
         
-        private void nextTourButton_Click(object sender, EventArgs e)
-        {
-            TomSurfaceCardTextBox.BackColor = DefaultBackColor;
-            bobSurfaceCardTextBox.BackColor = DefaultBackColor;
-            LilySurfaceCardTextBox.BackColor = DefaultBackColor;
-
-            foreach (Player player in players)
-            {
-                player.UpdateTextBoxes();
-            }
-
-            Player winner = nextTour();
-
-            winner.textBox.BackColor = Color.Green;
-
-            for(int i =0; i<players.Count; i++)
-            {
-                if (players[i] == winner)
-                {
-                    foreach (Card card in cardsOnStack)
-                    {
-                        players[i].CollectCard(card);
-                    }
-                }
-
-                if (players[i].NumberOfCards <= 0)
-                {
-                    players[i].UpdateTextBoxes();
-                    players.Remove(players[i]);
-                    
-                }
-
-            }
-            if (players.Count==1)
-            {
-                MessageBox.Show("Zwycieza gracz:" + players[0]);
-            }
-            cardsOnStack.Clear();
-        }
-
-     
-
         private void newDealButton_Click(object sender, EventArgs e)
         {
             cardPile.Shuffle(10);
             int position=0;
             int playerPosition;
-
-            while(cardPile.NumberOfCards != 0)
+            for (int i = 0; i < 5; i++)
             {
-                playerPosition = position % 3;
+                playerPosition = position % players.Count;
                 players[playerPosition].CollectCard(cardPile.PutCard());
                 position++;
-            }            
-        }
-
-        private Player nextTour()
-        {
-            Player winner = players[0];
-
-            cardsOnStack = new List<CardOnStack>();
-
-            foreach (Player player in players)
-            {
-                if (player.NumberOfCards > 0)
-                {
-                    cardsOnStack.Add(new CardOnStack(player.PutCard(), player));
-                }
             }
-
-
-
-            cardsOnStack.Sort();
-
-            return cardsOnStack.Last().Owner;
+                        
         }
-       
-       
+        
+     
     }
 }

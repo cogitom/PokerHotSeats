@@ -11,6 +11,7 @@ namespace enumKart
         public Suits Suit;       
         public Values Value;
 
+
         public string Name
         {
             get
@@ -18,10 +19,12 @@ namespace enumKart
                 return Value.ToString() + " of " + Suit.ToString();
             }               
         }
+
         public Card(Suits inSuit, Values inValue)
         {
             Suit = inSuit;
             Value = inValue;
         }
+        
     }
 }

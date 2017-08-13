@@ -16,7 +16,7 @@ namespace enumKart
 
             for (int i = 0; i < 4; i++)
             {
-                for (int j = 2; j <= 14; j++)
+                for (int j = 9; j <= 14; j++)
                 {
                     cards.Enqueue(new Card((Suits)i, (Values)j));
                 }

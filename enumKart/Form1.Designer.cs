@@ -28,166 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.newDealButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.bobSurfaceCardTextBox = new System.Windows.Forms.TextBox();
-            this.nextTourButton = new System.Windows.Forms.Button();
-            this.TomSurfaceCardTextBox = new System.Windows.Forms.TextBox();
-            this.LilySurfaceCardTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TomNumberOfCards = new System.Windows.Forms.TextBox();
-            this.BobNumberOfCards = new System.Windows.Forms.TextBox();
-            this.LilyNumberOfCards = new System.Windows.Forms.TextBox();
+            this.player1Label = new System.Windows.Forms.Label();
+            this.player2Label = new System.Windows.Forms.Label();
+            this.player3Label = new System.Windows.Forms.Label();
+            this.player2CardsTextBox = new System.Windows.Forms.TextBox();
+            this.player1CardsTextBox = new System.Windows.Forms.TextBox();
+            this.player3CardsTextBox = new System.Windows.Forms.TextBox();
+            this.player4TextBox = new System.Windows.Forms.TextBox();
+            this.player4Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // newDealButton
+            // player1Label
             // 
-            this.newDealButton.Location = new System.Drawing.Point(12, 34);
-            this.newDealButton.Name = "newDealButton";
-            this.newDealButton.Size = new System.Drawing.Size(114, 23);
-            this.newDealButton.TabIndex = 3;
-            this.newDealButton.Text = "Rozdaj karty";
-            this.newDealButton.UseVisualStyleBackColor = true;
-            this.newDealButton.Click += new System.EventHandler(this.newDealButton_Click);
+            this.player1Label.AutoSize = true;
+            this.player1Label.Location = new System.Drawing.Point(314, 9);
+            this.player1Label.Name = "player1Label";
+            this.player1Label.Size = new System.Drawing.Size(126, 13);
+            this.player1Label.TabIndex = 4;
+            this.player1Label.Text = "Karty zawodnika numer 1";
             // 
-            // label1
+            // player2Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(269, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Karty Toma";
+            this.player2Label.AutoSize = true;
+            this.player2Label.Location = new System.Drawing.Point(316, 83);
+            this.player2Label.Name = "player2Label";
+            this.player2Label.Size = new System.Drawing.Size(126, 13);
+            this.player2Label.TabIndex = 5;
+            this.player2Label.Text = "Karty zawodnika numer 2";
             // 
-            // label2
+            // player3Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(271, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Karty Boba";
+            this.player3Label.AutoSize = true;
+            this.player3Label.Location = new System.Drawing.Point(316, 157);
+            this.player3Label.Name = "player3Label";
+            this.player3Label.Size = new System.Drawing.Size(126, 13);
+            this.player3Label.TabIndex = 6;
+            this.player3Label.Text = "Karty zawodnika numer 3";
             // 
-            // label3
+            // player2CardsTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 222);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Karty Lily";
+            this.player2CardsTextBox.Location = new System.Drawing.Point(317, 99);
+            this.player2CardsTextBox.Multiline = true;
+            this.player2CardsTextBox.Name = "player2CardsTextBox";
+            this.player2CardsTextBox.ReadOnly = true;
+            this.player2CardsTextBox.Size = new System.Drawing.Size(206, 45);
+            this.player2CardsTextBox.TabIndex = 8;
+            this.player2CardsTextBox.Visible = false;
             // 
-            // bobSurfaceCardTextBox
+            // player1CardsTextBox
             // 
-            this.bobSurfaceCardTextBox.Location = new System.Drawing.Point(272, 138);
-            this.bobSurfaceCardTextBox.Multiline = true;
-            this.bobSurfaceCardTextBox.Name = "bobSurfaceCardTextBox";
-            this.bobSurfaceCardTextBox.ReadOnly = true;
-            this.bobSurfaceCardTextBox.Size = new System.Drawing.Size(206, 45);
-            this.bobSurfaceCardTextBox.TabIndex = 8;
+            this.player1CardsTextBox.Location = new System.Drawing.Point(315, 25);
+            this.player1CardsTextBox.Multiline = true;
+            this.player1CardsTextBox.Name = "player1CardsTextBox";
+            this.player1CardsTextBox.ReadOnly = true;
+            this.player1CardsTextBox.Size = new System.Drawing.Size(208, 45);
+            this.player1CardsTextBox.TabIndex = 12;
+            this.player1CardsTextBox.Visible = false;
             // 
-            // nextTourButton
+            // player3CardsTextBox
             // 
-            this.nextTourButton.Location = new System.Drawing.Point(12, 102);
-            this.nextTourButton.Name = "nextTourButton";
-            this.nextTourButton.Size = new System.Drawing.Size(114, 23);
-            this.nextTourButton.TabIndex = 11;
-            this.nextTourButton.Text = "Następna tura";
-            this.nextTourButton.UseVisualStyleBackColor = true;
-            this.nextTourButton.Click += new System.EventHandler(this.nextTourButton_Click);
+            this.player3CardsTextBox.Location = new System.Drawing.Point(315, 182);
+            this.player3CardsTextBox.Multiline = true;
+            this.player3CardsTextBox.Name = "player3CardsTextBox";
+            this.player3CardsTextBox.ReadOnly = true;
+            this.player3CardsTextBox.Size = new System.Drawing.Size(206, 45);
+            this.player3CardsTextBox.TabIndex = 13;
+            this.player3CardsTextBox.Visible = false;
             // 
-            // TomSurfaceCardTextBox
+            // player4TextBox
             // 
-            this.TomSurfaceCardTextBox.Location = new System.Drawing.Point(272, 34);
-            this.TomSurfaceCardTextBox.Multiline = true;
-            this.TomSurfaceCardTextBox.Name = "TomSurfaceCardTextBox";
-            this.TomSurfaceCardTextBox.ReadOnly = true;
-            this.TomSurfaceCardTextBox.Size = new System.Drawing.Size(208, 45);
-            this.TomSurfaceCardTextBox.TabIndex = 12;
+            this.player4TextBox.Location = new System.Drawing.Point(315, 256);
+            this.player4TextBox.Multiline = true;
+            this.player4TextBox.Name = "player4TextBox";
+            this.player4TextBox.ReadOnly = true;
+            this.player4TextBox.Size = new System.Drawing.Size(206, 45);
+            this.player4TextBox.TabIndex = 14;
+            this.player4TextBox.Visible = false;
             // 
-            // LilySurfaceCardTextBox
+            // player4Label
             // 
-            this.LilySurfaceCardTextBox.Location = new System.Drawing.Point(272, 238);
-            this.LilySurfaceCardTextBox.Multiline = true;
-            this.LilySurfaceCardTextBox.Name = "LilySurfaceCardTextBox";
-            this.LilySurfaceCardTextBox.ReadOnly = true;
-            this.LilySurfaceCardTextBox.Size = new System.Drawing.Size(206, 45);
-            this.LilySurfaceCardTextBox.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(550, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Ilość Kart Toma";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(550, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Ilość kart Boba";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(550, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Ilość kart Lily";
-            // 
-            // TomNumberOfCards
-            // 
-            this.TomNumberOfCards.Location = new System.Drawing.Point(553, 36);
-            this.TomNumberOfCards.Name = "TomNumberOfCards";
-            this.TomNumberOfCards.ReadOnly = true;
-            this.TomNumberOfCards.Size = new System.Drawing.Size(78, 20);
-            this.TomNumberOfCards.TabIndex = 17;
-            // 
-            // BobNumberOfCards
-            // 
-            this.BobNumberOfCards.Location = new System.Drawing.Point(553, 138);
-            this.BobNumberOfCards.Name = "BobNumberOfCards";
-            this.BobNumberOfCards.ReadOnly = true;
-            this.BobNumberOfCards.Size = new System.Drawing.Size(78, 20);
-            this.BobNumberOfCards.TabIndex = 18;
-            // 
-            // LilyNumberOfCards
-            // 
-            this.LilyNumberOfCards.Location = new System.Drawing.Point(553, 238);
-            this.LilyNumberOfCards.Name = "LilyNumberOfCards";
-            this.LilyNumberOfCards.ReadOnly = true;
-            this.LilyNumberOfCards.Size = new System.Drawing.Size(78, 20);
-            this.LilyNumberOfCards.TabIndex = 19;
+            this.player4Label.AutoSize = true;
+            this.player4Label.Location = new System.Drawing.Point(316, 240);
+            this.player4Label.Name = "player4Label";
+            this.player4Label.Size = new System.Drawing.Size(126, 13);
+            this.player4Label.TabIndex = 15;
+            this.player4Label.Text = "Karty zawodnika numer 4";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 368);
-            this.Controls.Add(this.LilyNumberOfCards);
-            this.Controls.Add(this.BobNumberOfCards);
-            this.Controls.Add(this.TomNumberOfCards);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.LilySurfaceCardTextBox);
-            this.Controls.Add(this.TomSurfaceCardTextBox);
-            this.Controls.Add(this.nextTourButton);
-            this.Controls.Add(this.bobSurfaceCardTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.newDealButton);
+            this.ClientSize = new System.Drawing.Size(549, 368);
+            this.Controls.Add(this.player4Label);
+            this.Controls.Add(this.player4TextBox);
+            this.Controls.Add(this.player3CardsTextBox);
+            this.Controls.Add(this.player1CardsTextBox);
+            this.Controls.Add(this.player2CardsTextBox);
+            this.Controls.Add(this.player3Label);
+            this.Controls.Add(this.player2Label);
+            this.Controls.Add(this.player1Label);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -196,20 +135,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button newDealButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox bobSurfaceCardTextBox;
-        private System.Windows.Forms.Button nextTourButton;
-        private System.Windows.Forms.TextBox TomSurfaceCardTextBox;
-        private System.Windows.Forms.TextBox LilySurfaceCardTextBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TomNumberOfCards;
-        private System.Windows.Forms.TextBox BobNumberOfCards;
-        private System.Windows.Forms.TextBox LilyNumberOfCards;
+        private System.Windows.Forms.Label player1Label;
+        private System.Windows.Forms.Label player2Label;
+        private System.Windows.Forms.Label player3Label;
+        private System.Windows.Forms.TextBox player2CardsTextBox;
+        private System.Windows.Forms.TextBox player1CardsTextBox;
+        private System.Windows.Forms.TextBox player3CardsTextBox;
+        private System.Windows.Forms.TextBox player4TextBox;
+        private System.Windows.Forms.Label player4Label;
     }
 }
 

@@ -10,47 +10,34 @@ namespace enumKart
     public class Player :IQueueCards
     {
         private Queue <Card> handCard;
-        
-        public TextBox textBox
+        private string password;
+
+        public TextBox cardTextBox
         {
             get;
-        }
-        public TextBox numberOfCardsText
-        
-        {
-            get;
+            set;
         }
 
         public string Name
         {
-            get;
-                           
-            set;
-                                       
+            get;                          
+            set;                              
         }
        
         public int NumberOfCards
         {
-            get
-            {
-                return handCard.Count;
-            }
+            get { return handCard.Count; }                              
         }
 
        public Card PeekCard
         {
-            get
-            {
-                return handCard.Peek();
-            }
-
+            get{ return handCard.Peek(); }           
         } 
         
-        public Player(string inName,TextBox inTextBox, TextBox numberOfCardsText)
+        public Player(string inName, string inPassword)
         {
             Name = inName;
-            textBox = inTextBox;
-            this.numberOfCardsText = numberOfCardsText;
+            password = inPassword;
             handCard = new Queue<Card>();
         }
 
@@ -64,19 +51,20 @@ namespace enumKart
             return handCard.Dequeue();
         }
 
-        public void UpdateTextBoxes()
+        public string getAllCardsInHand()
         {
-            if (NumberOfCards != 0)
+            string cards = "";
+
+            foreach (Card card in handCard)
             {
-                textBox.Text = PeekCard.Name;
-                numberOfCardsText.Text = NumberOfCards.ToString();
+                cards +=card.Name + ",";
             }
-            else
-            {
-                textBox.Text = Name+ " PRZEGRYWA !!!  ";
-                numberOfCardsText.Text = "BRAK";
-                textBox.BackColor = System.Drawing.Color.Red;
-            }
+
+           return cards;
         }
+
+       
+        
+         
     }
 }
